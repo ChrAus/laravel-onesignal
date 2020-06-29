@@ -306,10 +306,17 @@ class OneSignalClient
             );
         }
 
-	if(isset($image)){
-		$params['big_picture'] = $image;
-		$params['ios_attachments'] = ["id" => $image];
-	}
+		if(isset($image)){
+			$params['big_picture']          = $image;
+            $params['adm_big_picture']      = $image;
+            
+			$params['chrome_big_picture']   = $image;
+            $params['chrome_web_image']     = $image;
+            $params['chrome_web_badge ']    = $image;
+
+            
+			$params['ios_attachments']      = ["id" => $image];
+		}
         $this->sendNotificationCustom($params);
     }
 
