@@ -267,7 +267,7 @@ class OneSignalClient
         $this->sendNotificationCustom($params);
     }
 
-    public function sendNotificationToAll($message, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null) {
+    public function sendNotificationToAll($message, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null, $images=null) {
         $contents = array(
             "en" => $message
         );
@@ -306,6 +306,10 @@ class OneSignalClient
             );
         }
 
+		if(isset($image)){
+			$params['big_picture'] = $image;
+			$params['ios_attachments	'] = ["id" => $image];
+		}
         $this->sendNotificationCustom($params);
     }
 
